@@ -1,0 +1,21 @@
+.main{
+  height: 100%;
+}
+.title{
+  color: white;
+}
+.main-con{
+  padding: 0 2rem;
+  height: 100%;
+}
+.news-wrap{
+  height: 100%;
+  width: 100%;
+}
+.query-area{
+  padding:0.5rem 1rem;
+}
+.news-card{
+  height:100%;
+  margin-top: 1rem;
+}
