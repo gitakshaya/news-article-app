@@ -16,13 +16,13 @@ function News() {
     const getNewsArticle = () => {
         isLoading(true);
         axios
-            .get(`https://newsapi.org/v2/everything?pageSize=20&q=${query}`, { headers: { "X-Api-Key": apiKey } })
+            .get(`https://newsapi.org/v2/everything?pageSize=20&q=${query}`,
+             { headers: { "X-Api-Key": apiKey },
+            withCredentials:false })
             .then((response) => {
-                console.log(response.data)
                 const data = response.data;
                 isLoading(false);
                 if (data && data.articles) {
-                    console.log(data.articles);
                     setNewsItems([...data.articles])
                 }
             })
@@ -46,8 +46,8 @@ function News() {
                    {loading ? <Skeleton /> :
                    <>
                     <Row gutter={16} >
-                        {newsItems && newsItems.length > 0 ? newsItems.filter(item => item.author != null).map(item => (
-                            <Col span={8}>
+                        {newsItems && newsItems.length > 0 ? newsItems.filter(item => item.author != null).map((item,index) => (
+                            <Col key={index} lg={8} md={8} sm={24}>
                                 <Card
                                     className='news-card'
                                     cover={<img alt="news" src={item.urlToImage} />}
