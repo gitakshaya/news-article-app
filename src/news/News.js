@@ -4,6 +4,7 @@ import { apiKey } from '..';
 import axios from 'axios';
 const { Search } = Input;
 const { Meta } = Card;
+const proxyUrl = ""
 function News() {
     const [newsItems, setNewsItems] = useState([]);
     const [query, setQuery] = useState("india");
@@ -16,8 +17,8 @@ function News() {
     const getNewsArticle = () => {
         isLoading(true);
         axios
-            .get(`https://newsapi.org/v2/everything?pageSize=20&q=${query}`,
-             { headers: { "X-Api-Key": apiKey },
+            .get(`https://saurav.tech/NewsAPI/everything/cnn.json?pageSize=20&q=${query}`,
+             { 
             withCredentials:false })
             .then((response) => {
                 const data = response.data;
